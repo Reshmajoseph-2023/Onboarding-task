@@ -114,6 +114,8 @@ namespace Project_Mars.Feature
         [NUnit.Framework.TestCaseAttribute("@!23Php@", "Intermediate", null)]
         [NUnit.Framework.TestCaseAttribute("", "Choose Skill Level", null)]
         [NUnit.Framework.TestCaseAttribute("", "Beginner", null)]
+        [NUnit.Framework.TestCaseAttribute("Java1234567890!@#$%^&*()lkilllopqwertyuABCabcdefghjikolopiuytreqwe1234567890", "Beginner", null)]
+        [NUnit.Framework.TestCaseAttribute("Java", "Expert", null)]
         public void _02_AddSkillRecordWithValidDetails(string skill, string level, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -171,7 +173,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("Skill", skill);
             argumentsOfScenario.Add("Level", level);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03-  Update existing Skill records with valid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 27
+#line 29
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -181,13 +183,13 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 28
+#line 30
   testRunner.Given("User is logged into ProjectMars and navigate to skills tab successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 29
+#line 31
   testRunner.When(string.Format("Update \'{0}\' and \'{1}\' on an existing skill record.", skill, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 30
+#line 32
   testRunner.Then(string.Format("The skill record should been updated \'{0}\' and \'{1}\' Successfully", skill, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -211,7 +213,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("Skill", skill);
             argumentsOfScenario.Add("Level", level);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("04 - Delete the Skill from the skill lists", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 42
+#line 44
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -221,13 +223,13 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 43
+#line 45
   testRunner.Given("User is logged into ProjectMars and navigate to skills tab successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 44
+#line 46
   testRunner.When(string.Format("User Delete the record \'{0}\'", skill), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 45
+#line 47
   testRunner.Then(string.Format("The record \'{0}\' should deleted successfully", skill), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -243,7 +245,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "CANCEL_SKILL"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("05 - Cancel the skill when a recod is Update", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 52
+#line 54
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -253,13 +255,13 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 53
+#line 55
        testRunner.Given("User is logged into ProjectMars and navigate to skills tab successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 54
+#line 56
     testRunner.When("click Cancel button when update skill", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 55
+#line 57
     testRunner.Then("User was able to click cancel button successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

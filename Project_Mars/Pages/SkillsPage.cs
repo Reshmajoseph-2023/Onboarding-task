@@ -33,38 +33,26 @@ namespace Project_Mars.Pages
         private static IWebElement deleteButton => driver.FindElement(By.XPath("//i[@class='remove icon']"));
         private static IWebElement successMessage => driver.FindElement(By.XPath("//div[@class='ns-box-inner']"));
         private static IWebElement CancelButton => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td/div/span/input[2]"));
-       
+
 
 
         //Deleting existing records before adding new records
         public void DeleteExistingRecords()
         {
-
-            Thread.Sleep(2000);
-            IWebElement skillTable = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table"));
-            IList<IWebElement> skillsTableRows = skillTable.FindElements(By.TagName("tr"));
-            int rowCount = skillsTableRows.Count;
-            for (int i = rowCount - 1; i >= 1; i--)
+            Thread.Sleep(1000);
+            try
             {
-                try
+                IWebElement deleteButton = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td[3]/span[2]/i"));
+                var deleteButtons = driver.FindElements(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td[3]/span[2]/i"));
+                foreach (var button in deleteButtons)
                 {
-                    IWebElement row = skillsTableRows[i];
-                    IWebElement deleteicon = row.FindElement(By.XPath("//i[@class='remove icon']"));
-                    WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-                    wait.Until(ExpectedConditions.ElementToBeClickable(deleteicon));
-                    Console.WriteLine($"Deleting row {i}");
-                    deleteicon.Click();
-                    Thread.Sleep(5000);
+                    button.Click();
                 }
-                catch (StaleElementReferenceException)
-                { /* Handle exception or continue the loop */
-
-                }
-                Console.WriteLine("No Records to delete");
             }
+            catch (NoSuchElementException)
+            { Console.WriteLine("no items to delete"); }
 
         }
-    
 
         //Adding New skill to the skill list
         public void AddSkills(string skill, string Level)
@@ -93,10 +81,11 @@ namespace Project_Mars.Pages
             //verify the expected message text
             string expectedMessage1 = skill + " has been added to your skills";
             string expectedMessage2 = "Please enter skill and experience level";
-            string expectedMessage3 = "This skill is already exist in your skill list.";
+            string expectedMessage3 = "Duplicated data";
+            string expectedMessage4 = "This skill is already exist in your skill list.";
           
 
-            Assert.That(actualMessage, Is.EqualTo(expectedMessage1).Or.EqualTo(expectedMessage2).Or.EqualTo(expectedMessage3));
+            Assert.That(actualMessage, Is.EqualTo(expectedMessage1).Or.EqualTo(expectedMessage2).Or.EqualTo(expectedMessage3).Or.EqualTo(expectedMessage4));
         }
         public string getSkill()
         {
@@ -138,9 +127,10 @@ namespace Project_Mars.Pages
             //verify the expected message text
             string expectedMessage1 = skill + " has been updated to your skills";
             string expectedMessage2 = "Please enter skill and experience level";
-            string expectedMessage3 = "This skill is already added to your skill list.";
+            string expectedMessage3 = "Duplicated data";
+            string expectedMessage4 = "This skill is already added to your skill list.";
 
-            Assert.That(actualMessage, Is.EqualTo(expectedMessage1).Or.EqualTo(expectedMessage2).Or.EqualTo(expectedMessage3));
+            Assert.That(actualMessage, Is.EqualTo(expectedMessage1).Or.EqualTo(expectedMessage2).Or.EqualTo(expectedMessage3).Or.EqualTo(expectedMessage4));
         }
         public string getUpdatedSkill()
         {

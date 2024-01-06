@@ -16,12 +16,14 @@ Scenario: 02 - Add Skill record with valid details
 	      Then New skill record with '<Skill>' and '<Level>' are added successfully 
 
 	     Examples:   
-	     | Skill      |  Level				      |
-	     |  Java      | Expert                    |
-	     |  Python    | Choose Skill Level        |
-	     | @!23Php@   | Intermediate			  |
-	     |            | Choose Skill Level        |
-	     |            | Beginner                  |
+	     | Skill                                                                        | Level              |
+	     | Java                                                                         | Expert             |
+	     | Python                                                                       | Choose Skill Level |
+	     | @!23Php@                                                                     | Intermediate       |
+	     |                                                                              | Choose Skill Level |
+	     |                                                                              | Beginner           |
+	     | Java1234567890!@#$%^&*()lkilllopqwertyuABCabcdefghjikolopiuytreqwe1234567890 | Beginner           |
+	     | Java                                                                         | Expert             |
 
 @UPDATE_SKILLS
 Scenario: 03-  Update existing Skill records with valid details

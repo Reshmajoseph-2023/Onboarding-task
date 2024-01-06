@@ -16,12 +16,14 @@ So that the people seeking for languages can look at what details I hold.
 	     Then New record with '<Language>' and '<Level>' are added successfully
 
 	      Examples:  
-	      | Language	   | Level                  |
-	      | Urudu	       | Basic                  |
-	      | Tamil          | Choose Language Level  |
-	      | @RESHMA#$%     | Conversational	        |
-	      |			       | Fluent				    |
-	      |                | Choose Language Level  |
+	      | Language                                                                       | Level                 |
+	      | Urudu                                                                          | Basic                 |
+	      | Tamil                                                                          | Choose Language Level |
+	      | @Malayalam#$%                                                                     | Conversational        |
+	      |                                                                                | Fluent                |
+	      |                                                                                | Choose Language Level |
+	      | Urudu                                                                          | Fluent                |
+	      | Urudu1234567890!@#$%^&*()lkilllopqwertyuABCabcdefghjikolopiuytreqwe1234567890  | Native/Bilingual      |
 
 @UPDATE_LANGUAGES
 Scenario: 03 - Update existing language record with valid details
@@ -33,7 +35,7 @@ Scenario: 03 - Update existing language record with valid details
 	   | Language     | Level				|
 	   | Urudu        | Basic			    |
 	   | Hindi	      | Fluent			    |
-	   | @Joseph)*&   | Native/Bilingual	|
+	   | @Malai)*&    | Native/Bilingual	|
 	   |		      | Language Level		|
 	   | French       | Language Level		|
 	
@@ -45,7 +47,7 @@ Scenario: 04 - Delete an existing language
 
        Examples:  
        | Language    | Level             |
-       | @Joseph)*&  | Native/Bilingual  |
+       | @Malai)*&   | Native/Bilingual  |
 
  @CANCEL_LANGUAGE
  Scenario: 05 - Cancel the language when a recod is Update

@@ -111,9 +111,11 @@ namespace Project_Mars.Feature
         [NUnit.Framework.CategoryAttribute("ADD_LANGUAGES")]
         [NUnit.Framework.TestCaseAttribute("Urudu", "Basic", null)]
         [NUnit.Framework.TestCaseAttribute("Tamil", "Choose Language Level", null)]
-        [NUnit.Framework.TestCaseAttribute("@RESHMA#$%", "Conversational", null)]
+        [NUnit.Framework.TestCaseAttribute("@Malayalam#$%", "Conversational", null)]
         [NUnit.Framework.TestCaseAttribute("", "Fluent", null)]
         [NUnit.Framework.TestCaseAttribute("", "Choose Language Level", null)]
+        [NUnit.Framework.TestCaseAttribute("Urudu", "Fluent", null)]
+        [NUnit.Framework.TestCaseAttribute("Urudu1234567890!@#$%^&*()lkilllopqwertyuABCabcdefghjikolopiuytreqwe1234567890", "Native/Bilingual", null)]
         public void _02_AddLanguageRecordWithValidDetails(string language, string level, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -155,7 +157,7 @@ namespace Project_Mars.Feature
         [NUnit.Framework.CategoryAttribute("UPDATE_LANGUAGES")]
         [NUnit.Framework.TestCaseAttribute("Urudu", "Basic", null)]
         [NUnit.Framework.TestCaseAttribute("Hindi", "Fluent", null)]
-        [NUnit.Framework.TestCaseAttribute("@Joseph)*&", "Native/Bilingual", null)]
+        [NUnit.Framework.TestCaseAttribute("@Malai)*&", "Native/Bilingual", null)]
         [NUnit.Framework.TestCaseAttribute("", "Language Level", null)]
         [NUnit.Framework.TestCaseAttribute("French", "Language Level", null)]
         public void _03_UpdateExistingLanguageRecordWithValidDetails(string language, string level, string[] exampleTags)
@@ -171,7 +173,7 @@ namespace Project_Mars.Feature
             argumentsOfScenario.Add("Language", language);
             argumentsOfScenario.Add("Level", level);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03 - Update existing language record with valid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 27
+#line 29
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -181,13 +183,13 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 28
+#line 30
     testRunner.Given("User is logged into Project Mars and Navigate to language tab successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 29
+#line 31
     testRunner.When(string.Format("Update \'{0}\' and \'{1}\' on an existing language record", language, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 30
+#line 32
     testRunner.Then(string.Format("The record should been updated \'{0}\' and \'{1}\' successfully", language, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -197,7 +199,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("04 - Delete an existing language")]
         [NUnit.Framework.CategoryAttribute("DELETE_LANGUAGE")]
-        [NUnit.Framework.TestCaseAttribute("@Joseph)*&", "Native/Bilingual", null)]
+        [NUnit.Framework.TestCaseAttribute("@Malai)*&", "Native/Bilingual", null)]
         public void _04_DeleteAnExistingLanguage(string language, string level, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -211,7 +213,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("Language", language);
             argumentsOfScenario.Add("Level", level);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("04 - Delete an existing language", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 41
+#line 43
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -221,13 +223,13 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 42
+#line 44
        testRunner.Given("User is logged into Project Mars and Navigate to language tab successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 43
+#line 45
     testRunner.When(string.Format("User delete the \'{0}\'", language), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 44
+#line 46
     testRunner.Then(string.Format("the record \'{0}\' should be deleted successfully", language), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -243,7 +245,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "CANCEL_LANGUAGE"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("05 - Cancel the language when a recod is Update", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 51
+#line 53
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -253,13 +255,13 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 52
+#line 54
        testRunner.Given("User is logged into Project Mars and Navigate to language tab successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 53
+#line 55
     testRunner.When("click Cancel button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 54
+#line 56
     testRunner.Then("User clicked cancelled successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

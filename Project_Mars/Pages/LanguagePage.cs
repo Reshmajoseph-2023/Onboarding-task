@@ -84,9 +84,10 @@ namespace Project_Mars.Pages
                 //verify the expected message text
                 string expectedMessage1 = language + " has been added to your languages";
                 string expectedMessage2 = "Please enter language and level";
-                string expectedMessage3 = "This language is already exist in your language list.";
+                string expectedMessage3 = "Duplicated data";
+                string expectedMessage4 = "This language is already exist in your language list.";
                
-                Assert.That(actualMessage, Is.EqualTo(expectedMessage1).Or.EqualTo(expectedMessage2).Or.EqualTo(expectedMessage3));
+                Assert.That(actualMessage, Is.EqualTo(expectedMessage1).Or.EqualTo(expectedMessage2).Or.EqualTo(expectedMessage3).Or.EqualTo(expectedMessage4));
         }
          public string getLanguage()
          {
@@ -124,9 +125,10 @@ namespace Project_Mars.Pages
                 //verify the expected message text
                 string expectedMessage1 = language + " has been updated to your languages";
                 string expectedMessage2 = "Please enter language and level";
-                string expectedMessage3 = "This language is already added to your language list.";
+                string expectedMessage3 = "Duplicated data";
+                string expectedMessage4 = "This language is already added to your language list.";
 
-                Assert.That(actualMessage, Is.EqualTo(expectedMessage1).Or.EqualTo(expectedMessage2).Or.EqualTo(expectedMessage3));
+                Assert.That(actualMessage, Is.EqualTo(expectedMessage1).Or.EqualTo(expectedMessage2).Or.EqualTo(expectedMessage3).Or.EqualTo(expectedMessage4));
          }
          public string getEditedLanguage()
          {
