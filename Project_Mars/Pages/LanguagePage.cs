@@ -19,7 +19,6 @@ namespace Project_Mars.Pages
         private static IWebElement ChooseLanguageLevel => driver.FindElement(By.Name("level"));
         private static IWebElement AddButton => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/div/div[3]/input[1]"));
         private static IWebElement newLanguage => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[last()]/tr/td[1]"));
-                                                                             
         private static IWebElement newLevel => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[last()]/tr/td[2]"));
         private static IWebElement PencilIcon => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[3]/span[1]/i"));
         private static IWebElement UpdateLanguage => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td/div/div[1]/input"));
@@ -34,7 +33,6 @@ namespace Project_Mars.Pages
         private static IWebElement LanguagesTab => driver.FindElement(By.XPath("//a[contains(text(),'Languages')]"));
         private static IWebElement CancelButton => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td/div/span/input[2]"));
            
-        
         //Deleting existing records before adding new records
         public void DeleteExistingRecords()
         {
@@ -54,17 +52,16 @@ namespace Project_Mars.Pages
                     deleteicon.Click();
                     Thread.Sleep(5000);
                 }
-                catch (StaleElementReferenceException) { /* Handle exception or continue the loop */
-                  
+                catch (NoSuchElementException)
+                { 
+                    Console.WriteLine("No Records to delete");
                 }
-                Console.WriteLine("No Records to delete");
             }
 
         }
         //Adding New language to the language list
         public void AddLanguage(string language, string level)
         {
-
 
                 //Click on AddNew button
                 AddNew.Click();
@@ -80,13 +77,11 @@ namespace Project_Mars.Pages
                 //get the text of the message element
                 string actualMessage = messageBox.Text;
                 Console.WriteLine(actualMessage);
-
                 //verify the expected message text
                 string expectedMessage1 = language + " has been added to your languages";
                 string expectedMessage2 = "Please enter language and level";
                 string expectedMessage3 = "Duplicated data";
                 string expectedMessage4 = "This language is already exist in your language list.";
-               
                 Assert.That(actualMessage, Is.EqualTo(expectedMessage1).Or.EqualTo(expectedMessage2).Or.EqualTo(expectedMessage3).Or.EqualTo(expectedMessage4));
         }
          public string getLanguage()
@@ -121,13 +116,11 @@ namespace Project_Mars.Pages
                 //get the text of the message element
                 string actualMessage = messageBox.Text;
                 Console.WriteLine(actualMessage);
-
                 //verify the expected message text
                 string expectedMessage1 = language + " has been updated to your languages";
                 string expectedMessage2 = "Please enter language and level";
                 string expectedMessage3 = "Duplicated data";
                 string expectedMessage4 = "This language is already added to your language list.";
-
                 Assert.That(actualMessage, Is.EqualTo(expectedMessage1).Or.EqualTo(expectedMessage2).Or.EqualTo(expectedMessage3).Or.EqualTo(expectedMessage4));
          }
          public string getEditedLanguage()

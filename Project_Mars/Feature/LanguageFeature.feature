@@ -19,7 +19,7 @@ So that the people seeking for languages can look at what details I hold.
 	      | Language                                                                       | Level                 |
 	      | Urudu                                                                          | Basic                 |
 	      | Tamil                                                                          | Choose Language Level |
-	      | @Malayalam#$%                                                                     | Conversational        |
+	      | @Malayalam#$%                                                                  | Conversational        |
 	      |                                                                                | Fluent                |
 	      |                                                                                | Choose Language Level |
 	      | Urudu                                                                          | Fluent                |

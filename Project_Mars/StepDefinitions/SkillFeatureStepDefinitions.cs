@@ -57,12 +57,12 @@ namespace Project_Mars.StepDefinitions
             {
                 Assert.That(skill == newSkill, "Actual skill and expected skill do not match");
                 Assert.That(Level == newSkillLevel, "Actual skill level and expected skill level do not match");
-        }
+             }
             else
             {
                 Console.WriteLine("Check Error");
             }
-}
+        }
    
 
         [When(@"Update '([^']*)' and '([^']*)' on an existing skill record\.")]

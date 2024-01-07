@@ -27,14 +27,11 @@ namespace Project_Mars.Pages
         private static IWebElement UpdateButton => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td/div/span/input[1]"));
         private static IWebElement updatedSkill => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td[1]"));
         private static IWebElement updatedSkillLevel => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td[2]"));
-
         private static IWebElement ElementToDelete => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]"));
         private static IWebElement deletedSkill => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]"));
         private static IWebElement deleteButton => driver.FindElement(By.XPath("//i[@class='remove icon']"));
         private static IWebElement successMessage => driver.FindElement(By.XPath("//div[@class='ns-box-inner']"));
         private static IWebElement CancelButton => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td/div/span/input[2]"));
-
-
 
         //Deleting existing records before adding new records
         public void DeleteExistingRecords()
@@ -50,7 +47,9 @@ namespace Project_Mars.Pages
                 }
             }
             catch (NoSuchElementException)
-            { Console.WriteLine("no items to delete"); }
+            {
+                Console.WriteLine("no items to delete"); 
+            }
 
         }
 
@@ -77,14 +76,11 @@ namespace Project_Mars.Pages
             //get the text of the message element
             string actualMessage = messageBox.Text;
             Console.WriteLine(actualMessage);
-
             //verify the expected message text
             string expectedMessage1 = skill + " has been added to your skills";
             string expectedMessage2 = "Please enter skill and experience level";
             string expectedMessage3 = "Duplicated data";
             string expectedMessage4 = "This skill is already exist in your skill list.";
-          
-
             Assert.That(actualMessage, Is.EqualTo(expectedMessage1).Or.EqualTo(expectedMessage2).Or.EqualTo(expectedMessage3).Or.EqualTo(expectedMessage4));
         }
         public string getSkill()
@@ -123,13 +119,11 @@ namespace Project_Mars.Pages
             //get the text of the message element
             string actualMessage = messageBox.Text;
             Console.WriteLine(actualMessage);
-
             //verify the expected message text
             string expectedMessage1 = skill + " has been updated to your skills";
             string expectedMessage2 = "Please enter skill and experience level";
             string expectedMessage3 = "Duplicated data";
             string expectedMessage4 = "This skill is already added to your skill list.";
-
             Assert.That(actualMessage, Is.EqualTo(expectedMessage1).Or.EqualTo(expectedMessage2).Or.EqualTo(expectedMessage3).Or.EqualTo(expectedMessage4));
         }
         public string getUpdatedSkill()
@@ -177,7 +171,6 @@ namespace Project_Mars.Pages
             Thread.Sleep(5000);
             //Click on Cancel button
             CancelButton.Click();
-
         }
         public void AssertionCancel()
         {

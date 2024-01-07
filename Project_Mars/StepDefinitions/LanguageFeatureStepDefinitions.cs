@@ -22,7 +22,6 @@ namespace Project_Mars.StepDefinitions
             ProfilePageObj = new ProfilePage();
         }
     
-       
         [Given(@"User is logged into Project Mars and Navigate to language tab successfully")]
         public void GivenUserIsLoggedIntoProjectMarsAndNavigateToLanguageTabSuccessfully()
         {
@@ -114,7 +113,6 @@ namespace Project_Mars.StepDefinitions
         {
             LanguagePageObj.AssertionCancel();
         }
-
 
     }
 
