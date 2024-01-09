@@ -36,26 +36,34 @@ namespace Project_Mars.Pages
         //Deleting existing records before adding new records
         public void DeleteExistingRecords()
         {
-            Thread.Sleep(2000);
-            IWebElement languageTable = driver.FindElement(By.XPath("//table[@class='ui fixed table']"));
-            IList<IWebElement> languageTableRows = languageTable.FindElements(By.TagName("tr"));
-            int rowCount = languageTableRows.Count;
-            for (int i = rowCount - 1; i >= 1; i--)
+            try
             {
-                try
+                WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+                while (true)
                 {
-                    IWebElement row = languageTableRows[i];
-                    IWebElement deleteicon = row.FindElement(By.XPath("//i[@class='remove icon']"));
-                    WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-                    wait.Until(ExpectedConditions.ElementToBeClickable(deleteicon));
-                    Console.WriteLine($"Deleting row {i}");
-                    deleteicon.Click();
-                    Thread.Sleep(5000);
+                    var deleteButtons = driver.FindElements(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[last()]/tr/td[3]/span[2]/i"));
+                                                                     
+                    if (deleteButtons.Count == 0)
+                    {
+                        break;
+                    }
+                    foreach (var button in deleteButtons)
+                    {
+                        try
+                        {
+                            wait.Until(ExpectedConditions.ElementToBeClickable(button)).Click();
+                            Thread.Sleep(5000);
+                        }
+                        catch (StaleElementReferenceException)
+                        {
+                            // Handle the exception by re-checking the element 
+                        }
+                    }
                 }
-                catch (NoSuchElementException)
-                { 
-                    Console.WriteLine("No Records to delete");
-                }
+            }
+            catch (NoSuchElementException)
+            {
+                Console.WriteLine("No items to delete");
             }
 
         }
@@ -175,7 +183,7 @@ namespace Project_Mars.Pages
         public void AssertionCancel()
         {
             Thread.Sleep(5000);
-            //Click on skills tab
+            //Click on language tab
             LanguagesTab.Click();
         }
     }
