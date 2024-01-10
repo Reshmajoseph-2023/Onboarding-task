@@ -23,7 +23,7 @@ So that the people seeking for languages can look at what details I hold.
 	      |                                                                                | Fluent                |
 	      |                                                                                | Choose Language Level |
 	      | Urudu                                                                          | Fluent                |
-	      | Urudu1234567890!@#$%^&*()lkilllopqwertyuABCabcdefghjikolopiuytreqwe1234567890  | Native/Bilingual      |
+	      | Destructive software testing is a type of software testing which attempts to cause a piece of software to fail in an uncontrolled manner, in order to test its robustness and to help establish range limits, within which the software will operate in a stable and reliable manner  | Native/Bilingual      |
 
 @UPDATE_LANGUAGES
 Scenario: 03 - Update existing language record with valid details

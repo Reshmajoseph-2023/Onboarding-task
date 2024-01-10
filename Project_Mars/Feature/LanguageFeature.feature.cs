@@ -115,7 +115,7 @@ namespace Project_Mars.Feature
         [NUnit.Framework.TestCaseAttribute("", "Fluent", null)]
         [NUnit.Framework.TestCaseAttribute("", "Choose Language Level", null)]
         [NUnit.Framework.TestCaseAttribute("Urudu", "Fluent", null)]
-        [NUnit.Framework.TestCaseAttribute("Urudu1234567890!@#$%^&*()lkilllopqwertyuABCabcdefghjikolopiuytreqwe1234567890", "Native/Bilingual", null)]
+        [NUnit.Framework.TestCaseAttribute(@"Destructive software testing is a type of software testing which attempts to cause a piece of software to fail in an uncontrolled manner, in order to test its robustness and to help establish range limits, within which the software will operate in a stable and reliable manner", "Native/Bilingual", null)]
         public void _02_AddLanguageRecordWithValidDetails(string language, string level, string[] exampleTags)
         {
             string[] @__tags = new string[] {

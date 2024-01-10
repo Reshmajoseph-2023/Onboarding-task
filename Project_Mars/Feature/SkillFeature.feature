@@ -22,8 +22,9 @@ Scenario: 02 - Add Skill record with valid details
 	     | @!23Php@                                                                     | Intermediate       |
 	     |                                                                              | Choose Skill Level |
 	     |                                                                              | Beginner           |
-	     | Java1234567890!@#$%^&*()lkilllopqwertyuABCabcdefghjikolopiuytreqwe1234567890 | Beginner           |
-	     | Java                                                                         | Expert             |
+		 | Java                                                                         | Beginner           |
+	     | Destructive software testing is a type of software testing which attempts to cause a piece of software to fail in an uncontrolled manner, in order to test its robustness and to help establish range limits, within which the software will operate in a stable and reliable manner. |  Beginner           |
+	     
 
 @UPDATE_SKILLS
 Scenario: 03-  Update existing Skill records with valid details
@@ -48,7 +49,7 @@ Scenario: 04 - Delete the Skill from the skill lists
 
 		Examples:
 		| Skill      | Level		    |
-		| C#!@#4     | Intermediate		|
+		| C#!@#4     |  Intermediate    |
 
 @CANCEL_SKILL
  Scenario: 05 - Cancel the skill when a recod is Update
