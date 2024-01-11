@@ -9,7 +9,7 @@ So that the people seeking for skills can look at what details I hold.
 	      When User deletes the existing records
 	      Then skill records deleted successfully
 
-@ADD_SKILLS
+@ADD_SKILLS_VALID
 Scenario: 02 - Add Skill record with valid details
 	      Given User is logged into ProjectMars and navigate to skills tab successfully
 	      When Adding new '<Skill>' and '<Level>' to the skill list 
@@ -19,15 +19,25 @@ Scenario: 02 - Add Skill record with valid details
 	     | Skill                                                                        | Level              |
 	     | Java                                                                         | Expert             |
 	     | Python                                                                       | Choose Skill Level |
-	     | @!23Php@                                                                     | Intermediate       |
-	     |                                                                              | Choose Skill Level |
+	  	 |                                                                              | Choose Skill Level |
 	     |                                                                              | Beginner           |
 		 | Java                                                                         | Beginner           |
-	     | Destructive software testing is a type of software testing which attempts to cause a piece of software to fail in an uncontrolled manner, in order to test its robustness and to help establish range limits, within which the software will operate in a stable and reliable manner. |  Beginner           |
 	     
 
+@ADD_SKILLS_INVALID
+Scenario: 02 - Add Skill record with invalid details
+	      Given User is logged into ProjectMars and navigate to skills tab successfully
+	      When Adding new '<Skill>' and '<Level>' to the skill list      
+		  Then The message '<Message>' should be displayed while adding invalid details
+
+		   Examples:  
+         | Skill                                                                                                                                                                                                                                                                                | Level            | Message                                           |
+         | @!23Php@                                                                                                                                                                                                                                                                             | Beginner         | Special characters are not allowed                |
+         | Destructive software testing is a type of software testing which attempts to cause a piece of software to fail in an uncontrolled manner, in order to test its robustness and to help establish range limits, within which the software will operate in a stable and reliable manner | Intermediate     | The limit for the language field is 30 characters |
+
+
 @UPDATE_SKILLS
-Scenario: 03-  Update existing Skill records with valid details
+Scenario: 03-  Update existing Skill record 
 		Given User is logged into ProjectMars and navigate to skills tab successfully
 		When Update '<Skill>' and '<Level>' on an existing skill record.
 		Then The skill record should been updated '<Skill>' and '<Level>' Successfully

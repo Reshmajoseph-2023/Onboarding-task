@@ -29,7 +29,7 @@ namespace Project_Mars.Pages
         private static IWebElement updatedSkillLevel => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td[2]"));
         private static IWebElement ElementToDelete => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]"));
         private static IWebElement deletedSkill => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]"));
-        private static IWebElement deleteButton => driver.FindElement(By.XPath("//i[@class='remove icon']"));
+        private static IWebElement deleteButton => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[last()]/tr/td[3]/span[2]/i"));
         private static IWebElement successMessage => driver.FindElement(By.XPath("//div[@class='ns-box-inner']"));
         private static IWebElement CancelButton => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td/div/span/input[2]"));
 
@@ -158,6 +158,9 @@ namespace Project_Mars.Pages
             if (ElementToDelete.Text == skill)
             {
                 Thread.Sleep(3000);
+                //IWebElement deleteButton = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[last()]/tr/td[3]/span[2]/i"));
+                                                                      
+
                 deleteButton.Click();
                 Thread.Sleep(3000);
                 //get the text of the message element

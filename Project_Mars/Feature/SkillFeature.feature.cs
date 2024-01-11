@@ -108,18 +108,16 @@ namespace Project_Mars.Feature
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("02 - Add Skill record with valid details")]
-        [NUnit.Framework.CategoryAttribute("ADD_SKILLS")]
+        [NUnit.Framework.CategoryAttribute("ADD_SKILLS_VALID")]
         [NUnit.Framework.TestCaseAttribute("Java", "Expert", null)]
         [NUnit.Framework.TestCaseAttribute("Python", "Choose Skill Level", null)]
-        [NUnit.Framework.TestCaseAttribute("@!23Php@", "Intermediate", null)]
         [NUnit.Framework.TestCaseAttribute("", "Choose Skill Level", null)]
         [NUnit.Framework.TestCaseAttribute("", "Beginner", null)]
         [NUnit.Framework.TestCaseAttribute("Java", "Beginner", null)]
-        [NUnit.Framework.TestCaseAttribute(@"Destructive software testing is a type of software testing which attempts to cause a piece of software to fail in an uncontrolled manner, in order to test its robustness and to help establish range limits, within which the software will operate in a stable and reliable manner.", "Beginner", null)]
         public void _02_AddSkillRecordWithValidDetails(string skill, string level, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "ADD_SKILLS"};
+                    "ADD_SKILLS_VALID"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
@@ -153,14 +151,56 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("03-  Update existing Skill records with valid details")]
+        [NUnit.Framework.DescriptionAttribute("02 - Add Skill record with invalid details")]
+        [NUnit.Framework.CategoryAttribute("ADD_SKILLS_INVALID")]
+        [NUnit.Framework.TestCaseAttribute("@!23Php@", "Beginner", "Special characters are not allowed", null)]
+        [NUnit.Framework.TestCaseAttribute(@"Destructive software testing is a type of software testing which attempts to cause a piece of software to fail in an uncontrolled manner, in order to test its robustness and to help establish range limits, within which the software will operate in a stable and reliable manner", "Intermediate", "The limit for the language field is 30 characters", null)]
+        public void _02_AddSkillRecordWithInvalidDetails(string skill, string level, string message, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "ADD_SKILLS_INVALID"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("Skill", skill);
+            argumentsOfScenario.Add("Level", level);
+            argumentsOfScenario.Add("Message", message);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02 - Add Skill record with invalid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 28
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 29
+       testRunner.Given("User is logged into ProjectMars and navigate to skills tab successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 30
+       testRunner.When(string.Format("Adding new \'{0}\' and \'{1}\' to the skill list", skill, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 31
+    testRunner.Then(string.Format("The message \'{0}\' should be displayed while adding invalid details", message), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("03-  Update existing Skill record")]
         [NUnit.Framework.CategoryAttribute("UPDATE_SKILLS")]
         [NUnit.Framework.TestCaseAttribute("Java", "Expert", null)]
         [NUnit.Framework.TestCaseAttribute("PHP", "Beginner", null)]
         [NUnit.Framework.TestCaseAttribute("C#!@#4", "Intermediate", null)]
         [NUnit.Framework.TestCaseAttribute("", "Skill Level", null)]
         [NUnit.Framework.TestCaseAttribute("OOPS", "Skill Level", null)]
-        public void _03_UpdateExistingSkillRecordsWithValidDetails(string skill, string level, string[] exampleTags)
+        public void _03_UpdateExistingSkillRecord(string skill, string level, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "UPDATE_SKILLS"};
@@ -172,8 +212,8 @@ this.ScenarioInitialize(scenarioInfo);
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Skill", skill);
             argumentsOfScenario.Add("Level", level);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03-  Update existing Skill records with valid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 30
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03-  Update existing Skill record", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 40
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -183,13 +223,13 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 31
+#line 41
   testRunner.Given("User is logged into ProjectMars and navigate to skills tab successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 32
+#line 42
   testRunner.When(string.Format("Update \'{0}\' and \'{1}\' on an existing skill record.", skill, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 33
+#line 43
   testRunner.Then(string.Format("The skill record should been updated \'{0}\' and \'{1}\' Successfully", skill, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -199,7 +239,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("04 - Delete the Skill from the skill lists")]
         [NUnit.Framework.CategoryAttribute("DELETE_SKILL")]
-        [NUnit.Framework.TestCaseAttribute(@"Destructive software testing is a type of software testing which attempts to cause a piece of software to fail in an uncontrolled manner, in order to test its robustness and to help establish range limits, within which the software will operate in a stable and reliable manner.", "Beginner", null)]
+        [NUnit.Framework.TestCaseAttribute("C#!@#4", "Intermediate", null)]
         public void _04_DeleteTheSkillFromTheSkillLists(string skill, string level, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -213,7 +253,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("Skill", skill);
             argumentsOfScenario.Add("Level", level);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("04 - Delete the Skill from the skill lists", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 45
+#line 55
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -223,13 +263,13 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 46
+#line 56
   testRunner.Given("User is logged into ProjectMars and navigate to skills tab successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 47
+#line 57
   testRunner.When(string.Format("User Delete the record \'{0}\'", skill), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 48
+#line 58
   testRunner.Then(string.Format("The record \'{0}\' should deleted successfully", skill), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -245,7 +285,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "CANCEL_SKILL"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("05 - Cancel the skill when a recod is Update", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 55
+#line 65
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -255,13 +295,13 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 56
+#line 66
        testRunner.Given("User is logged into ProjectMars and navigate to skills tab successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 57
+#line 67
     testRunner.When("click Cancel button when update skill", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 58
+#line 68
     testRunner.Then("User was able to click cancel button successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

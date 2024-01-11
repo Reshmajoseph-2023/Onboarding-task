@@ -45,6 +45,7 @@ namespace Project_Mars.Pages
                                                                      
                     if (deleteButtons.Count == 0)
                     {
+                        
                         break;
                     }
                     foreach (var button in deleteButtons)

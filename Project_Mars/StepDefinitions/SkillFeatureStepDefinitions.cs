@@ -63,7 +63,13 @@ namespace Project_Mars.StepDefinitions
                 Console.WriteLine("Check Error");
             }
         }
-   
+
+        [Then(@"The message '([^']*)' should be displayed while adding invalid details")]
+        public void ThenTheMessageShouldBeDisplayedWhileAddingInvalidDetails(string expectedMessage)
+        {
+            string actualMessage = SkillsPageObj.getSkill();
+            Assert.That(actualMessage == expectedMessage, "Actual message and expected message do not match");
+        }
 
         [When(@"Update '([^']*)' and '([^']*)' on an existing skill record\.")]
         public void WhenUpdateAndOnAnExistingSkillRecord_(string skill, string Level)

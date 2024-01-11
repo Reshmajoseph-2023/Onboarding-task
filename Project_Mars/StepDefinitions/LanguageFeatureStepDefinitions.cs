@@ -37,7 +37,7 @@ namespace Project_Mars.StepDefinitions
         [Then(@"language records deleted successfully")]
         public void ThenLanguageRecordsDeletedSuccessfully()
         {
-            Console.WriteLine("Records deleted");
+           // Console.WriteLine("Records deleted");
         }
 
         [When(@"Adding new '([^']*)' and '([^']*)' to the language list")]
@@ -63,6 +63,14 @@ namespace Project_Mars.StepDefinitions
                 Console.WriteLine("Check Error");
             }
         }
+        [Then(@"The message '([^']*)' should be displayed")]
+        public void ThenTheMessageShouldBeDisplayed(string expectedMessage)
+        {
+            string actualMessage = LanguagePageObj.getLanguage();
+            //Console.WriteLine($"{expectedMessage} {actualMessage}");
+            Assert.That(actualMessage == expectedMessage, "Actual message and expected message do not match");
+        }
+
 
         [When(@"Update '([^']*)' and '([^']*)' on an existing language record")]
         public void WhenUpdateAndOnAnExistingLanguageRecord(string language, string level)
