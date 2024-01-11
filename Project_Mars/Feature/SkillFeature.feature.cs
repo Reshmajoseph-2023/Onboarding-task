@@ -151,11 +151,11 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("02 - Add Skill record with invalid details")]
+        [NUnit.Framework.DescriptionAttribute("03 - Add Skill record with invalid details")]
         [NUnit.Framework.CategoryAttribute("ADD_SKILLS_INVALID")]
         [NUnit.Framework.TestCaseAttribute("@!23Php@", "Beginner", "Special characters are not allowed", null)]
         [NUnit.Framework.TestCaseAttribute(@"Destructive software testing is a type of software testing which attempts to cause a piece of software to fail in an uncontrolled manner, in order to test its robustness and to help establish range limits, within which the software will operate in a stable and reliable manner", "Intermediate", "The limit for the language field is 30 characters", null)]
-        public void _02_AddSkillRecordWithInvalidDetails(string skill, string level, string message, string[] exampleTags)
+        public void _03_AddSkillRecordWithInvalidDetails(string skill, string level, string message, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "ADD_SKILLS_INVALID"};
@@ -168,7 +168,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("Skill", skill);
             argumentsOfScenario.Add("Level", level);
             argumentsOfScenario.Add("Message", message);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02 - Add Skill record with invalid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03 - Add Skill record with invalid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 28
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -193,14 +193,14 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("03-  Update existing Skill record")]
+        [NUnit.Framework.DescriptionAttribute("04-  Update existing Skill record")]
         [NUnit.Framework.CategoryAttribute("UPDATE_SKILLS")]
         [NUnit.Framework.TestCaseAttribute("Java", "Expert", null)]
         [NUnit.Framework.TestCaseAttribute("PHP", "Beginner", null)]
         [NUnit.Framework.TestCaseAttribute("C#!@#4", "Intermediate", null)]
         [NUnit.Framework.TestCaseAttribute("", "Skill Level", null)]
         [NUnit.Framework.TestCaseAttribute("OOPS", "Skill Level", null)]
-        public void _03_UpdateExistingSkillRecord(string skill, string level, string[] exampleTags)
+        public void _04_UpdateExistingSkillRecord(string skill, string level, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "UPDATE_SKILLS"};
@@ -212,7 +212,7 @@ this.ScenarioInitialize(scenarioInfo);
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Skill", skill);
             argumentsOfScenario.Add("Level", level);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03-  Update existing Skill record", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("04-  Update existing Skill record", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 40
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -237,10 +237,10 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("04 - Delete the Skill from the skill lists")]
+        [NUnit.Framework.DescriptionAttribute("05 - Delete the Skill from the skill lists")]
         [NUnit.Framework.CategoryAttribute("DELETE_SKILL")]
-        [NUnit.Framework.TestCaseAttribute("C#!@#4", "Intermediate", null)]
-        public void _04_DeleteTheSkillFromTheSkillLists(string skill, string level, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("Java", "Expert", null)]
+        public void _05_DeleteTheSkillFromTheSkillLists(string skill, string level, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "DELETE_SKILL"};
@@ -252,7 +252,7 @@ this.ScenarioInitialize(scenarioInfo);
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Skill", skill);
             argumentsOfScenario.Add("Level", level);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("04 - Delete the Skill from the skill lists", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("05 - Delete the Skill from the skill lists", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 55
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -277,14 +277,14 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("05 - Cancel the skill when a recod is Update")]
+        [NUnit.Framework.DescriptionAttribute("06 - Cancel the skill when a recod is Update")]
         [NUnit.Framework.CategoryAttribute("CANCEL_SKILL")]
-        public void _05_CancelTheSkillWhenARecodIsUpdate()
+        public void _06_CancelTheSkillWhenARecodIsUpdate()
         {
             string[] tagsOfScenario = new string[] {
                     "CANCEL_SKILL"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("05 - Cancel the skill when a recod is Update", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("06 - Cancel the skill when a recod is Update", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 65
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
