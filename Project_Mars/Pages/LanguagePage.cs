@@ -72,78 +72,73 @@ namespace Project_Mars.Pages
         public void AddLanguage(string language, string level)
         {
 
-                //Click on AddNew button
-                AddNew.Click();
-                Thread.Sleep(1000);
-                //Enter the language that needs to be added
-                 AddLanguageTextBox.SendKeys(language);
-          
-                //Choose the language level
-                ChooseLanguageLevel.Click();
-                ChooseLanguageLevel.SendKeys(level);
-                //Click on Add button
-                AddButton.Click();
-                Thread.Sleep(3000);
-                //get the text of the message element
-                string actualMessage = messageBox.Text;
-                Console.WriteLine(actualMessage);
-           
-           
+               //Click on AddNew button
+               AddNew.Click();
+               Thread.Sleep(1000);
+               //Enter the language that needs to be added
+               AddLanguageTextBox.SendKeys(language);
+               //Choose the language level
+               ChooseLanguageLevel.Click();
+               ChooseLanguageLevel.SendKeys(level);
+               //Click on Add button
+               AddButton.Click();
+               Thread.Sleep(3000);
+               //get the text of the message element
+               string actualMessage = messageBox.Text;
+               Console.WriteLine(actualMessage);
+                    
         }
          public string getLanguage()
          {
-            Thread.Sleep(3000);
-            return newLanguage.Text;
+               Thread.Sleep(3000);
+               return newLanguage.Text;
         }
 
          public string getLevel()
          {
-            Thread.Sleep(3000);
-            return newLevel.Text;
+              Thread.Sleep(3000);
+              return newLevel.Text;
            
         }
         public string getMessage()
         {
-            //Get the text message after entering language and language level
-            Thread.Sleep(3000);
-            return successMessage.Text;
+              //Get the text message after entering language and language level
+              Thread.Sleep(3000);
+              return successMessage.Text;
         }
         //Updating the language records
         public void EditLanguage(string language, string level)
          {
-                //Click on pencilIcon
-                PencilIcon.Click();
-                //Edit the language
-                UpdateLanguage.Clear();
-                UpdateLanguage.SendKeys(language);
-                //Choose the level 
-                UpdateLevel.Click();
-                Thread.Sleep(1000);
-                UpdateLevel.SendKeys(level);
-                //Click on Update button
-                UpdateButton.Click();
-                Thread.Sleep(3000);
-                //get the text of the message element
-                string actualMessage = messageBox.Text;
-                Console.WriteLine(actualMessage);
-                
-            
-        }
+              //Click on pencilIcon
+              PencilIcon.Click();
+              //Edit the language
+              UpdateLanguage.Clear();
+              UpdateLanguage.SendKeys(language);
+              //Choose the level 
+              UpdateLevel.Click();
+              Thread.Sleep(1000);
+              UpdateLevel.SendKeys(level);
+              //Click on Update button
+              UpdateButton.Click();
+              Thread.Sleep(3000);
+              //get the text of the message element
+              string actualMessage = messageBox.Text;
+              Console.WriteLine(actualMessage);
+         }
          public string getEditedLanguage()
          {
-            Thread.Sleep(3000);
-            return updatedLanguage.Text;
+              Thread.Sleep(3000);
+              return updatedLanguage.Text;
          }
          public string getEditedLevel()
          {
-            Thread.Sleep(3000);
-            return updatedLevel.Text;
+              Thread.Sleep(3000);
+              return updatedLevel.Text;
          }
         public string getActualMessage()
         {
-            //Get the text message after updating language and language level
-
-            return successMessage.Text;
+              //Get the text message after updating language and language level
+              return successMessage.Text;
         }
         //Delete a language record
         public void Delete_Language(string language)

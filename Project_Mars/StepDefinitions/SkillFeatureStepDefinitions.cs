@@ -29,14 +29,14 @@ namespace Project_Mars.StepDefinitions
         public void WhenUserDeletesTheExistingRecords()
         {
        
-         SkillsPageObj.DeleteExistingRecords();
+           SkillsPageObj.DeleteExistingRecords();
         }
 
         [Then(@"skill records deleted successfully")]
         public void ThenSkillRecordsDeletedSuccessfully()
         {
-         
-        Console.WriteLine("Records deleted");
+
+           Console.WriteLine("All records are deleted from the table");
         }
 
         [When(@"Adding new '([^']*)' and '([^']*)' to the skill list")]

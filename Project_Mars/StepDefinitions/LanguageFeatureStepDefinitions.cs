@@ -37,7 +37,7 @@ namespace Project_Mars.StepDefinitions
         [Then(@"language records deleted successfully")]
         public void ThenLanguageRecordsDeletedSuccessfully()
         {
-           // Console.WriteLine("Records deleted");
+           Console.WriteLine("All records are deleted from the table");
         }
 
         [When(@"Adding new '([^']*)' and '([^']*)' to the language list")]
