@@ -53,21 +53,16 @@ namespace Project_Mars.StepDefinitions
             string newSkill = SkillsPageObj.getSkill();
             string newSkillLevel = SkillsPageObj.getSkillLevel();
 
-            if (skill == newSkill && Level == newSkillLevel)
-            {
-                Assert.That(skill == newSkill, "Actual skill and expected skill do not match");
-                Assert.That(Level == newSkillLevel, "Actual skill level and expected skill level do not match");
-             }
-            else
-            {
-                Console.WriteLine("Check Error");
-            }
+            Assert.That(skill == newSkill, "Actual skill and expected skill do not match");
+            Assert.That(Level == newSkillLevel, "Actual skill level and expected skill level do not match");
+            
+                         
         }
 
         [Then(@"The message '([^']*)' should be displayed while adding invalid details")]
         public void ThenTheMessageShouldBeDisplayedWhileAddingInvalidDetails(string expectedMessage)
         {
-            string actualMessage = SkillsPageObj.getSkill();
+            string actualMessage = SkillsPageObj.getMessage();
             Assert.That(actualMessage == expectedMessage, "Actual message and expected message do not match");
         }
 
@@ -85,15 +80,9 @@ namespace Project_Mars.StepDefinitions
             string newUpdatedSkill = SkillsPageObj.getUpdatedSkill();
             string newUpdatedSkillLevel = SkillsPageObj.getUpdatedSkillLevel();
 
-            if (skill == newUpdatedSkill && Level == newUpdatedSkillLevel)
-            {
             Assert.That(skill==newUpdatedSkill, "Updated skill and expected skill do not match.");
             Assert.That(Level==newUpdatedSkillLevel, "Updated Skilllevel and created skilllevel do not match");
-            }
-            else
-            {
-                Console.WriteLine("Check error");
-            }
+           
         }
 
         [When(@"User Delete the record '([^']*)'")]

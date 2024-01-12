@@ -110,10 +110,6 @@ namespace Project_Mars.Feature
         [NUnit.Framework.DescriptionAttribute("02 - Add language record with valid details")]
         [NUnit.Framework.CategoryAttribute("ADD_LANGUAGES_VALID")]
         [NUnit.Framework.TestCaseAttribute("Urudu", "Basic", null)]
-        [NUnit.Framework.TestCaseAttribute("Tamil", "Choose Language Level", null)]
-        [NUnit.Framework.TestCaseAttribute("", "Fluent", null)]
-        [NUnit.Framework.TestCaseAttribute("", "Choose Language Level", null)]
-        [NUnit.Framework.TestCaseAttribute("Urudu", "Fluent", null)]
         public void _02_AddLanguageRecordWithValidDetails(string language, string level, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -153,8 +149,14 @@ namespace Project_Mars.Feature
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("03 - Add language record with invalid details")]
         [NUnit.Framework.CategoryAttribute("ADD_LANGUAGES_INVALID")]
+        [NUnit.Framework.TestCaseAttribute("Tamil", "Choose Language Level", "Please enter language and level", null)]
+        [NUnit.Framework.TestCaseAttribute("", "Fluent", "Please enter language and level", null)]
+        [NUnit.Framework.TestCaseAttribute("", "Choose Language Level", "Please enter language and level", null)]
+        [NUnit.Framework.TestCaseAttribute("Urudu", "Fluent", "Duplicated data", null)]
+        [NUnit.Framework.TestCaseAttribute("Urudu", "Basic", "This language is already exist in your language list.", null)]
         [NUnit.Framework.TestCaseAttribute("@Malayalam#$%", "Conversational", "Special characters are not allowed", null)]
-        [NUnit.Framework.TestCaseAttribute(@"Destructive software testing is a type of software testing which attempts to cause a piece of software to fail in an uncontrolled manner, in order to test its robustness and to help establish range limits, within which the software will operate in a stable and reliable manner", "Native/Bilingual", "The limit for the language field is 30 characters", null)]
+        [NUnit.Framework.TestCaseAttribute("Malayalam1234", "Conversational", "Numbers are not allowed", null)]
+        [NUnit.Framework.TestCaseAttribute(@"Destructive software testing is a type of software testing which attempts to cause a piece of software to fail in an uncontrolled manner, in order to test its robustness and to help establish range limits, within which the software will operate in a stable and reliable manner", "Native/Bilingual", "The limit for the language field is 100 characters", null)]
         public void _03_AddLanguageRecordWithInvalidDetails(string language, string level, string message, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -169,7 +171,7 @@ namespace Project_Mars.Feature
             argumentsOfScenario.Add("Level", level);
             argumentsOfScenario.Add("Message", message);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03 - Add language record with invalid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 28
+#line 24
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -179,13 +181,13 @@ namespace Project_Mars.Feature
             else
             {
                 this.ScenarioStart();
-#line 29
+#line 25
       testRunner.Given("User is logged into Project Mars and Navigate to language tab successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 30
+#line 26
       testRunner.When(string.Format("Adding new \'{0}\' and \'{1}\' to the language list", language, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 31
+#line 27
    testRunner.Then(string.Format("The message \'{0}\' should be displayed", message), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -195,11 +197,8 @@ namespace Project_Mars.Feature
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("04 - Update existing language record with valid details")]
         [NUnit.Framework.CategoryAttribute("UPDATE_LANGUAGES")]
-        [NUnit.Framework.TestCaseAttribute("Urudu", "Basic", null)]
         [NUnit.Framework.TestCaseAttribute("Hindi", "Fluent", null)]
         [NUnit.Framework.TestCaseAttribute("Kannada", "Native/Bilingual", null)]
-        [NUnit.Framework.TestCaseAttribute("", "Language Level", null)]
-        [NUnit.Framework.TestCaseAttribute("French", "Language Level", null)]
         public void _04_UpdateExistingLanguageRecordWithValidDetails(string language, string level, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -213,7 +212,7 @@ namespace Project_Mars.Feature
             argumentsOfScenario.Add("Language", language);
             argumentsOfScenario.Add("Level", level);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("04 - Update existing language record with valid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 39
+#line 41
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -223,13 +222,13 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 40
+#line 42
     testRunner.Given("User is logged into Project Mars and Navigate to language tab successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 41
+#line 43
     testRunner.When(string.Format("Update \'{0}\' and \'{1}\' on an existing language record", language, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 42
+#line 44
     testRunner.Then(string.Format("The record should been updated \'{0}\' and \'{1}\' successfully", language, level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

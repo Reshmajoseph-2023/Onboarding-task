@@ -30,6 +30,7 @@ namespace Project_Mars.Pages
         private static IWebElement deletedLanguage => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]"));
         private static IWebElement messageBox =>driver.FindElement(By.XPath("//div[@class='ns-box-inner']"));
         private static IWebElement  successMessage => driver.FindElement(By.XPath("//div[@class='ns-box-inner']"));
+        private static IWebElement deleteButton => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[3]/span[2]/i"));
         private static IWebElement LanguagesTab => driver.FindElement(By.XPath("//a[contains(text(),'Languages')]"));
         private static IWebElement CancelButton => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td/div/span/input[2]"));
            
@@ -75,7 +76,8 @@ namespace Project_Mars.Pages
                 AddNew.Click();
                 Thread.Sleep(1000);
                 //Enter the language that needs to be added
-                AddLanguageTextBox.SendKeys(language);
+                 AddLanguageTextBox.SendKeys(language);
+          
                 //Choose the language level
                 ChooseLanguageLevel.Click();
                 ChooseLanguageLevel.SendKeys(level);
@@ -85,27 +87,29 @@ namespace Project_Mars.Pages
                 //get the text of the message element
                 string actualMessage = messageBox.Text;
                 Console.WriteLine(actualMessage);
-                //verify the expected message text
-                string expectedMessage1 = language + " has been added to your languages";
-                string expectedMessage2 = "Please enter language and level";
-                string expectedMessage3 = "Duplicated data";
-                string expectedMessage4 = "This language is already exist in your language list.";
-                Assert.That(actualMessage, Is.EqualTo(expectedMessage1).Or.EqualTo(expectedMessage2).Or.EqualTo(expectedMessage3).Or.EqualTo(expectedMessage4));
+           
+           
         }
          public string getLanguage()
          {
             Thread.Sleep(3000);
             return newLanguage.Text;
-         }
+        }
 
          public string getLevel()
          {
             Thread.Sleep(3000);
             return newLevel.Text;
-         }
-
-         //Updating the language records
-         public void EditLanguage(string language, string level)
+           
+        }
+        public string getMessage()
+        {
+            //Get the text message after entering language and language level
+            Thread.Sleep(3000);
+            return successMessage.Text;
+        }
+        //Updating the language records
+        public void EditLanguage(string language, string level)
          {
                 //Click on pencilIcon
                 PencilIcon.Click();
@@ -118,19 +122,13 @@ namespace Project_Mars.Pages
                 UpdateLevel.SendKeys(level);
                 //Click on Update button
                 UpdateButton.Click();
-                Thread.Sleep(2000);
-                IWebElement messageBox = driver.FindElement(By.XPath("//div[@class='ns-box-inner']"));
-                Thread.Sleep(1000);
+                Thread.Sleep(3000);
                 //get the text of the message element
                 string actualMessage = messageBox.Text;
                 Console.WriteLine(actualMessage);
-                //verify the expected message text
-                string expectedMessage1 = language + " has been updated to your languages";
-                string expectedMessage2 = "Please enter language and level";
-                string expectedMessage3 = "Duplicated data";
-                string expectedMessage4 = "This language is already added to your language list.";
-                Assert.That(actualMessage, Is.EqualTo(expectedMessage1).Or.EqualTo(expectedMessage2).Or.EqualTo(expectedMessage3).Or.EqualTo(expectedMessage4));
-         }
+                
+            
+        }
          public string getEditedLanguage()
          {
             Thread.Sleep(3000);
@@ -141,7 +139,12 @@ namespace Project_Mars.Pages
             Thread.Sleep(3000);
             return updatedLevel.Text;
          }
+        public string getActualMessage()
+        {
+            //Get the text message after updating language and language level
 
+            return successMessage.Text;
+        }
         //Delete a language record
         public void Delete_Language(string language)
         {     
@@ -149,7 +152,6 @@ namespace Project_Mars.Pages
               if (EditedLanguage.Text == language)
               {
                 Thread.Sleep(3000);
-                IWebElement deleteButton = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[3]/span[2]/i"));
                 //Click on Delete button
                 deleteButton.Click();
                 Thread.Sleep(3000);

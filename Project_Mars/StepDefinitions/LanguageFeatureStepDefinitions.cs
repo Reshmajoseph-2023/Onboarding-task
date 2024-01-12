@@ -53,21 +53,14 @@ namespace Project_Mars.StepDefinitions
             string newLanguage = LanguagePageObj.getLanguage();
             string newLevel = LanguagePageObj.getLevel();
 
-            if (language == newLanguage && level == newLevel)
-            {
-                Assert.That(language == newLanguage, "Actual language and expected language do not match.");
-                Assert.That(level == newLevel, "Actual level and expected level do not match.");
-            }
-            else
-            {
-                Console.WriteLine("Check Error");
-            }
+            Assert.That(language == newLanguage, "Actual language and expected language do not match.");
+            Assert.That(level == newLevel, "Actual level and expected level do not match.");
+            
         }
         [Then(@"The message '([^']*)' should be displayed")]
         public void ThenTheMessageShouldBeDisplayed(string expectedMessage)
         {
-            string actualMessage = LanguagePageObj.getLanguage();
-            //Console.WriteLine($"{expectedMessage} {actualMessage}");
+            string actualMessage = LanguagePageObj.getMessage();
             Assert.That(actualMessage == expectedMessage, "Actual message and expected message do not match");
         }
 
@@ -84,16 +77,10 @@ namespace Project_Mars.StepDefinitions
         {
             string createdLanguage = LanguagePageObj.getEditedLanguage();
             string createdLevel = LanguagePageObj.getEditedLevel();
-
-            if (language == createdLanguage && level == createdLevel)
-            {
-                Assert.That(language == createdLanguage, "updated language and expected language do not match.");
-                Assert.That(level == createdLevel, "updated level and expected level do not match.");
-            }
-            else
-            {
-                Console.WriteLine("Check Error");
-            }
+                       
+            Assert.That(language == createdLanguage, "updated language and expected language do not match.");
+            Assert.That(level == createdLevel, "updated level and expected level do not match.");
+            
         }
 
         [When(@"User delete the '([^']*)'")]

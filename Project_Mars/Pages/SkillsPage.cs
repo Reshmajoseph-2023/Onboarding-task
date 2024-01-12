@@ -27,10 +27,11 @@ namespace Project_Mars.Pages
         private static IWebElement UpdateButton => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td/div/span/input[1]"));
         private static IWebElement updatedSkill => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td[1]"));
         private static IWebElement updatedSkillLevel => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td[2]"));
-        private static IWebElement ElementToDelete => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[last()]/tr/td[1]"));
+        private static IWebElement ElementToDelete => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td[1]"));
         private static IWebElement deletedSkill => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]"));
-        private static IWebElement deleteButton => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[last()]/tr/td[3]/span[2]/i"));
+        private static IWebElement deleteButton => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td[3]/span[2]/i"));
         private static IWebElement successMessage => driver.FindElement(By.XPath("//div[@class='ns-box-inner']"));
+        private static IWebElement  messageBox => driver.FindElement(By.XPath("//div[@class='ns-box-inner']"));
         private static IWebElement CancelButton => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td/div/span/input[2]"));
 
         //Deleting existing records before adding new records
@@ -90,12 +91,7 @@ namespace Project_Mars.Pages
             //get the text of the message element
             string actualMessage = messageBox.Text;
             Console.WriteLine(actualMessage);
-            //verify the expected message text
-            string expectedMessage1 = skill + " has been added to your skills";
-            string expectedMessage2 = "Please enter skill and experience level";
-            string expectedMessage3 = "Duplicated data";
-            string expectedMessage4 = "This skill is already exist in your skill list.";
-            Assert.That(actualMessage, Is.EqualTo(expectedMessage1).Or.EqualTo(expectedMessage2).Or.EqualTo(expectedMessage3).Or.EqualTo(expectedMessage4));
+            
         }
         public string getSkill()
         {
@@ -107,6 +103,13 @@ namespace Project_Mars.Pages
             Thread.Sleep(5000);
             return newSkillLevel.Text;
         }
+        public string getMessage()
+        {
+            //Get the text message after entering skill and skill level
+            Thread.Sleep(3000);
+            return successMessage.Text;
+        }
+
         //Updating the skill records
         public void EditSkills(string skill, string Level)
         {
@@ -129,16 +132,10 @@ namespace Project_Mars.Pages
             //Click on update button
             UpdateButton.Click();
             Thread.Sleep(2000);
-            IWebElement messageBox = driver.FindElement(By.XPath("//div[@class='ns-box-inner']"));
             //get the text of the message element
             string actualMessage = messageBox.Text;
             Console.WriteLine(actualMessage);
-            //verify the expected message text
-            string expectedMessage1 = skill + " has been updated to your skills";
-            string expectedMessage2 = "Please enter skill and experience level";
-            string expectedMessage3 = "Duplicated data";
-            string expectedMessage4 = "This skill is already added to your skill list.";
-            Assert.That(actualMessage, Is.EqualTo(expectedMessage1).Or.EqualTo(expectedMessage2).Or.EqualTo(expectedMessage3).Or.EqualTo(expectedMessage4));
+            
         }
         public string getUpdatedSkill()
         {
@@ -150,7 +147,12 @@ namespace Project_Mars.Pages
             Thread.Sleep(5000);
             return updatedSkillLevel.Text;
         }
+        public string getActualMessage()
+        {
+            //Get the text message after updating language and language level
 
+            return successMessage.Text;
+        }
         //Delete a skill record
         public void Delete_Skill(string skill)
         {

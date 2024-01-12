@@ -16,13 +16,9 @@ So that the people seeking for languages can look at what details I hold.
 	     Then New record with '<Language>' and '<Level>' are added successfully
 
 	      Examples:  
-	      | Language                                                                       | Level                 |
-	      | Urudu                                                                          | Basic                 |
-	      | Tamil                                                                          | Choose Language Level |
-	      |                                                                                | Fluent                |
-	      |                                                                                | Choose Language Level |
-	      | Urudu                                                                          | Fluent                |
-	     
+	      | Language         | Level             |
+	      | Urudu            | Basic             |
+	      
 		  
 @ADD_LANGUAGES_INVALID
  Scenario: 03 - Add language record with invalid details
@@ -31,9 +27,15 @@ So that the people seeking for languages can look at what details I hold.
 		 Then The message '<Message>' should be displayed
 
          Examples:  
-         | Language                                                                                                                                                                                                                                                                             | Level            | Message                                           |
-         | @Malayalam#$%                                                                                                                                                                                                                                                                        | Conversational   | Special characters are not allowed                |
-         | Destructive software testing is a type of software testing which attempts to cause a piece of software to fail in an uncontrolled manner, in order to test its robustness and to help establish range limits, within which the software will operate in a stable and reliable manner | Native/Bilingual | The limit for the language field is 30 characters |
+         | Language                                                                                                                                                                                                                                                                             | Level                 | Message                                               |
+         | Tamil                                                                                                                                                                                                                                                                                | Choose Language Level | Please enter language and level                       |
+         |                                                                                                                                                                                                                                                                                      | Fluent                | Please enter language and level                       |
+         |                                                                                                                                                                                                                                                                                      | Choose Language Level | Please enter language and level                       |
+         | Urudu                                                                                                                                                                                                                                                                                | Fluent                | Duplicated data                                       |
+         | Urudu                                                                                                                                                                                                                                                                                | Basic                 | This language is already exist in your language list. |
+		 | @Malayalam#$%                                                                                                                                                                                                                                                                        | Conversational        | Special characters are not allowed                    |
+		 | Malayalam1234                                                                                                                                                                                                                                                                        | Conversational        | Numbers are not allowed                               |
+         | Destructive software testing is a type of software testing which attempts to cause a piece of software to fail in an uncontrolled manner, in order to test its robustness and to help establish range limits, within which the software will operate in a stable and reliable manner | Native/Bilingual      | The limit for the language field is 100 characters    |
 
 @UPDATE_LANGUAGES
 Scenario: 04 - Update existing language record with valid details
@@ -43,11 +45,9 @@ Scenario: 04 - Update existing language record with valid details
 
 	   Examples: 
 	   | Language     | Level				|
-	   | Urudu        | Basic			    |
 	   | Hindi	      | Fluent			    |
 	   | Kannada      | Native/Bilingual	|
-	   |		      | Language Level		|
-	   | French       | Language Level		|
+	   
 	
 @DELETE_LANGUAGE
 Scenario: 05 - Delete an existing language
