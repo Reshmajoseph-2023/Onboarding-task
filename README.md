@@ -9,8 +9,8 @@ In this project, I tested the key features related to user-known languages and s
 
 *****Branches*****
 
-The repository contains the following branches: main: feature/branch-name**: TestCasesTask -1: It contains manual test cases and automation code.
+The repository contains the following branches: main: feature/branch-name**:Onboardingchildbranch1: It contains manual test cases and automation code.
 
 *****How to Review*****
 
-Select " TestCasesTask -1 " from the branch dropdown menu above the file list to review the automation code.
+Select " Onboardingchildbranch1 " from the branch dropdown menu to review the automation code.
